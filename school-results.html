@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Exam Results</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .results {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: #f2f2f2;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .form-group select,
+    .form-group input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .form-group button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn {
+      background-color: #4169e1;
+      color: white;
+    }
+    .reset-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .action-links {
+      margin-top: 20px;
+    }
+    .action-links button {
+      margin: 0 10px;
+      padding: 8px 14px;
+      font-size: 15px;
+      border-radius: 5px;
+      border: 1px solid #999;
+      background: white;
+      cursor: pointer;
+    }
+  
+
+
+
+.fake-captcha {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 360px;
+  margin: 30px auto;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  border: 1px solid #ccc;
+}
+.fake-captcha input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+.fake-captcha label {
+  flex: 1;
+  font-size: 16px;
+}
+.captcha-info {
+  text-align: right;
+}
+
+
+.image-captcha-grid {
+  text-align: center;
+  margin: 30px auto;
+}
+.image-captcha-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.image-captcha-grid img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.image-captcha-grid img.selected {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px #4CAF50;
+  position: relative;
+}
+.image-captcha-grid img.selected::after {
+  content: "✓";
+  color: white;
+  background-color: #4CAF50;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-captcha-grid img.selected {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px #4CAF50;
+}
+
+
+
+
+
+
+
+
+.image-captcha-grid {
+  text-align: center;
+  margin: 30px auto;
+}
+.image-captcha-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.img-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+.img-wrap.selected img {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px #4CAF50;
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <img src="images/header-second.png" alt="Banner Header" style="width:1500px; display:block; margin:0 auto;">
+  </header>
+
+  
+<div style="text-align:center; margin: 20px auto;">
+    <img src="images/warning-banner.png" alt="Notice" style="width:1500px;">
+  </div>
+
+  <section class="results">
+    
+    <div class="form-group">
+      <select>
+<option selected disabled>Select Exam</option>
+<option>G.C.E (O/L) Examination</option>
+<option>G.C.E (A/L) Examination</option>
+      </select>
+      <select>
+        <option selected disabled>Select the year</option>
+        
+        
+        
+      </select>
+      <select>
+<option selected disabled>Select Method</option>
+<option>Index</option>
+<option>NIC</option>
+      </select>
+      <input type="text" placeholder="Enter Your Index or NIC" />
+    </div>
+
+    </div>
+
+
+<div class="fake-captcha">
+  <input type="checkbox" id="captcha-check">
+  <label for="captcha-check">I am human</label>
+  <div class="captcha-info">
+    <span style="font-size: 12px; color: #555;">hCaptcha</span><br>
+    <a href="#" style="font-size: 10px; color: #777;">Privacy</a> - <a href="#" style="font-size: 10px; color: #777;">Terms</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="image-captcha-grid">
+  <p>Select all images with trees</p>
+  <div class="grid">
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img3.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img1.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img1.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img1.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img2.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img2.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img3.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img2.png" alt="img">
+      
+    </div>
+    
+    <div class="img-wrap" onclick="toggleSelect(this)">
+      <img src="captcha-img/img3.png" alt="img">
+      
+    </div>
+    
+  </div>
+</div>
+
+
+<script>
+  function toggleSelect(el) {
+    el.classList.toggle("selected");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.querySelector(".form-group button.submit-btn");
+    submitBtn.addEventListener("click", function (e) {
+      const selected = document.querySelectorAll(".img-wrap.selected");
+      if (selected.length === 0) {
+        e.preventDefault();
+        alert("Please select at least one image before submitting.");
+      }
+    });
+  });
+</script>
+
+
+
+
+
+<div class="form-group" style="margin-top: 25px;">
+      <button class="submit-btn">Submit</button>
+      <button class="reset-btn">Reset</button>
+    </div>
+
+    <div class="action-links">
+      <button>Print</button>
+      <button>Other Examination Results</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy;- </p>
+  </footer>
+
+
+<script>
+  function toggleSelect(el) {
+    el.classList.toggle("selected");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.querySelector(".form-group button.submit-btn");
+    submitBtn.addEventListener("click", function (e) {
+      const selected = document.querySelectorAll(".img-wrap.selected");
+      if (selected.length === 0) {
+        e.preventDefault();
+        alert("Please select at least one image before submitting.");
+      }
+    });
+  });
+</script>
+
+
+
+    <div style="text-align: center; margin-top: 20px;"><img src="img/footer-extra.png" alt="Footer Banner" style="max-width: 100%; height: auto;"></div>
+</body>
+</html>
